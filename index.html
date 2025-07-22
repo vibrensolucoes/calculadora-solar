@@ -1,1 +1,58 @@
-Conteúdo do index.html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Solar</title>
+    <meta name="theme-color" content="#007f5f"/>
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon-512x512.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora Solar</h1>
+        <div class="card" id="form-card">
+            <h2>Suas Informações</h2>
+            <form id="solar-form">
+                <div class="form-group">
+                    <label for="cep">1. Qual o seu CEP?</label>
+                    <input type="text" id="cep" placeholder="Ex: 49000-000" required>
+                </div>
+                <div class="form-group">
+                    <label>2. Qual o tipo da sua ligação de energia?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="tipoLigacao" value="monofasico" required> Monofásico</label>
+                        <label><input type="radio" name="tipoLigacao" value="bifasico" checked> Bifásico</label>
+                        <label><input type="radio" name="tipoLigacao" value="trifasico"> Trifásico</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="tarifa">3. Qual o valor da tarifa de energia (R$/kWh)?</label>
+                    <input type="number" id="tarifa" step="0.0001" placeholder="Ex: 0.9388" required>
+                </div>
+                <div class="form-group">
+                    <label>4. Digite seu consumo mensal em kWh dos últimos 12 meses:</label>
+                    <div class="consumo-grid">
+                        <div class="form-group"><input type="number" class="consumo-mes" placeholder="Mês 1" required></div>
+                        <div class="form-group"><input type="number" class="consumo-mes" placeholder="Mês 2" required></div>
+                        <div class="form-group"><input type="number" class="consumo-mes" placeholder="Mês 3" required></div>
+                        <div class="form-group"><input type="number" class="consumo-mes" placeholder="Mês 4" required></div>
+                        <div class="form-group"><input type="number" class="consumo-mes" placeholder="Mês 5" required></div>
+                        <div class="form-group"><input type="number" class="consumo-mes" placeholder="Mês 6" required></div>
+                        <div class="form-group"><input type="number" class="consumo-mes" placeholder="Mês 7" required></div>
+                        <div class="form-group"><input type="number" class="consumo-mes" placeholder="Mês 8" required></div>
+                        <div class="form-group"><input type="number" class="consumo-mes" placeholder="Mês 9" required></div>
+                        <div class="form-group"><input type="number" class="consumo-mes" placeholder="Mês 10" required></div>
+                        <div class="form-group"><input type="number" class="consumo-mes" placeholder="Mês 11" required></div>
+                        <div class="form-group"><input type="number" class="consumo-mes" placeholder="Mês 12" required></div>
+                    </div>
+                </div>
+                <button type="submit">Gerar Meu Relatório de Economia</button>
+            </form>
+        </div>
+        <div class="card" id="report"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
