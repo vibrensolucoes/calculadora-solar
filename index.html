@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora Solar</title>
+    <title>Calculadora Solar - Energisa</title>
     <meta name="theme-color" content="#007f5f"/>
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="icon-512x512.png">
@@ -11,9 +11,41 @@
 </head>
 <body>
     <div class="container">
-        <h1>Calculadora Solar</h1>
+        <h1>Calculadora Solar - Energisa</h1>
+        
+        <!-- Seção para Upload da Fatura -->
+        <div class="card" id="upload-card">
+            <h2>Opção 1: Upload da Fatura da Energisa</h2>
+            <p class="description">Faça o upload da sua conta de energia da Energisa em PDF para extrair automaticamente os dados necessários.</p>
+            <div class="upload-area" id="upload-area">
+                <div class="upload-icon">📄</div>
+                <p>Clique aqui ou arraste sua fatura da Energisa (PDF)</p>
+                <input type="file" id="file-input" accept=".pdf" style="display: none;">
+            </div>
+            <div id="file-info" class="file-info" style="display: none;">
+                <p><strong>Arquivo selecionado:</strong> <span id="file-name"></span></p>
+                <button id="process-file" class="btn-secondary">Processar Fatura</button>
+            </div>
+            <div id="extraction-results" class="extraction-results" style="display: none;">
+                <h3>Dados Extraídos da Fatura</h3>
+                <div class="extracted-data">
+                    <p><strong>CEP:</strong> <span id="extracted-cep">-</span></p>
+                    <p><strong>Tipo de Ligação:</strong> <span id="extracted-tipo">-</span></p>
+                    <p><strong>Tarifa (R$/kWh):</strong> <span id="extracted-tarifa">-</span></p>
+                    <p><strong>Consumo Atual:</strong> <span id="extracted-consumo-atual">-</span> kWh</p>
+                </div>
+                <button id="use-extracted-data" class="btn-primary">Usar Dados Extraídos</button>
+            </div>
+        </div>
+
+        <!-- Divisor -->
+        <div class="divider">
+            <span>OU</span>
+        </div>
+
+        <!-- Seção para Entrada Manual -->
         <div class="card" id="form-card">
-            <h2>Suas Informações</h2>
+            <h2>Opção 2: Entrada Manual de Dados</h2>
             <form id="solar-form">
                 <div class="form-group">
                     <label for="cep">1. Qual o seu CEP?</label>
@@ -51,8 +83,11 @@
                 <button type="submit">Gerar Meu Relatório de Economia</button>
             </form>
         </div>
-        <div class="card" id="report"></div>
+        
+        <!-- Seção do Relatório -->
+        <div class="card" id="report" style="display: none;"></div>
     </div>
     <script src="script.js"></script>
 </body>
 </html>
+
